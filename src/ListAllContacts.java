@@ -6,7 +6,7 @@ import java.util.List;
 public class ListAllContacts extends Contacts {
 
     public static List<String> listContacts(){
-        List<String> contacts = null;
+
         try {
             contacts = Files.readAllLines(dataFile);
 //            for (String contact : contacts) {

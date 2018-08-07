@@ -1,6 +1,6 @@
 public class SearchForContact {
 
-    public String SearchForContact() {
+    public static String SearchForContact() {
         String searchedContact = "";
         return searchedContact;
     }

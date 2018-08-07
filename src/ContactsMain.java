@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ContactsMain extends Contacts {
 
-    static Scanner sc = new Scanner(System.in);
+
 
     public static void main(String[] args) {
 
@@ -47,7 +47,7 @@ public class ContactsMain extends Contacts {
                     ListAllContacts.listContacts();
                     break;
                 case "2":
-//                    AddContact();
+                    AddContact.addAContact();
                     break;
                 case "3":
                     System.out.println("Name | Phone Number");
@@ -55,7 +55,7 @@ public class ContactsMain extends Contacts {
 //                    SearchForContact();
                     break;
                 case "4":
-//                    DeleteContact();
+                    DeleteContact.deleteAContact();
                     break;
                 case "5":
                     break;
