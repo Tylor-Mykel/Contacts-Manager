@@ -6,7 +6,6 @@ public class ContactsMain extends ContactVariables implements Contacts {
     public static void main(String[] args) {
 
         makeDirectoryAndFile();
-
         contactsMenu();
 
     }

@@ -5,5 +5,6 @@ abstract class ContactVariables {
 
     static Scanner sc = new Scanner(System.in);
     static List<String> contacts = null;
+    static String newContact;
 
 }
