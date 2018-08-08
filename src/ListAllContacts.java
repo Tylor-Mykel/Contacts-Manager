@@ -1,24 +1,22 @@
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ListAllContacts extends Contacts {
+public class ListAllContacts extends ContactVariables implements Contacts {
 
-    public static List<String> listContacts(){
+    static List<String> listContacts(){
 
         try {
             contacts = Files.readAllLines(dataFile);
-//            for (String contact : contacts) {
-//                System.out.println(contact);
-//            }
-            for (int i = 0; i < contacts.size(); i += 1) {
-                System.out.println((i + 1) + ": " + contacts.get(i));
+            for (String contact : contacts) {
+                System.out.println(contact);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        System.out.println("----------------------------------");
+        System.out.println();
         return contacts;
     }
-
 }

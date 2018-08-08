@@ -1,13 +1,17 @@
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.List;
-import java.util.Scanner;
 
-public class ContactsMain extends Contacts {
-
-
+public class ContactsMain extends ContactVariables implements Contacts {
 
     public static void main(String[] args) {
+
+        makeDirectoryAndFile();
+
+        contactsMenu();
+
+    }
+
+    public static void makeDirectoryAndFile() {
 
         if (Files.notExists(dataDirectory)) {
             try {
@@ -16,6 +20,7 @@ public class ContactsMain extends Contacts {
                 e.printStackTrace();
             }
         }
+
         if (Files.notExists(dataFile)) {
             try {
                 Files.createFile(dataFile);
@@ -23,9 +28,6 @@ public class ContactsMain extends Contacts {
                 e.printStackTrace();
             }
         }
-
-        contactsMenu();
-
     }
 
     public static void contactsMenu() {
@@ -38,26 +40,31 @@ public class ContactsMain extends Contacts {
         System.out.println("Enter an option (1, 2, 3, 4, 5): ");
 
         String input = sc.next();
+        sc.nextLine();
 
         try {
             switch (input) {
                 case "1":
-                    System.out.println("#  Name | Phone Number");
-                    System.out.println("----------------------");
+                    System.out.println("----------------------------------");
+                    System.out.println("| Name            | Phone Number |");
+                    System.out.println("----------------------------------");
                     ListAllContacts.listContacts();
+                    contactsMenu();
                     break;
                 case "2":
                     AddContact.addAContact();
+                    contactsMenu();
                     break;
                 case "3":
-                    System.out.println("Name | Phone Number");
-                    System.out.println("-------------------");
-//                    SearchForContact();
+                    SearchForContact.searchForAContact();
+                    contactsMenu();
                     break;
                 case "4":
                     DeleteContact.deleteAContact();
+                    contactsMenu();
                     break;
                 case "5":
+                    System.out.println("Have a good day! Goodbye");
                     break;
                 default:
                     System.out.println("Invalid option, try again");
@@ -66,7 +73,5 @@ public class ContactsMain extends Contacts {
         } catch (Exception e) {
             e.getStackTrace();
         }
-
     }
-
 }

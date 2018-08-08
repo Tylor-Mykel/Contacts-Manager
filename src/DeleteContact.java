@@ -1,10 +1,9 @@
 import java.io.IOException;
-import java.nio.file.StandardOpenOption;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteContact extends Contacts {
+public class DeleteContact extends ContactVariables implements Contacts {
 
     public static List<String> deleteAContact() {
 
@@ -15,29 +14,35 @@ public class DeleteContact extends Contacts {
         }
 
         List<String> updatedContactList = new ArrayList<>();
+
         System.out.println("Enter the contact's name to delete: ");
-        sc.nextLine();
+        String nameToDelete = sc.nextLine();
 
-        String name = sc.nextLine();
         System.out.println("Enter the contact's number to delete: ");
-        String number = sc.nextLine();
-        String targetToDelete = name + " | " + number;
+        String numberToDelete = sc.nextLine();
+        String targetToDelete = String.format("| %-15s |  %-10s  |",nameToDelete, numberToDelete);
 
-        for (String contact : contacts) {
-            if (contact.equals(targetToDelete)) {
+        if (!contacts.contains(targetToDelete)) {
+            System.out.println("That contact doesn't exist, try another name and number");
+            deleteAContact();
+        } else {
+            for (String contact : contacts) {
+                if (contact.equals(targetToDelete)) {
 
-            } else {
-                updatedContactList.add(contact);
+                } else {
+                    updatedContactList.add(contact);
+                }
             }
 
+            try {
+                Files.write(dataFile, updatedContactList);
+                System.out.println(nameToDelete + " was removed");
+                System.out.println();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        try {
-            Files.write(dataFile, updatedContactList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return updatedContactList;
     }
-
 }
