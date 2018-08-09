@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("all")
 public class SearchForContact extends ContactVariables implements Contacts {
 
     public static List<String> searchForAContact() {

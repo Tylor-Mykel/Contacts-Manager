@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("all")
 public class AddContact extends ContactVariables implements Contacts {
 
     public static List<String> addAContact() {

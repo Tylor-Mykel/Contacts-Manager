@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
 
+@SuppressWarnings("all")
 public class ContactsMain extends ContactVariables implements Contacts {
 
     public static void main(String[] args) {

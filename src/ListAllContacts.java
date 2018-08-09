@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
+@SuppressWarnings("all")
 public class ListAllContacts extends ContactVariables implements Contacts {
 
     static List<String> listContacts(){
